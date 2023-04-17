@@ -6,10 +6,10 @@ import com.co.kr.dtopattern.service.UserService;
 import com.co.kr.dtopattern.service.usecase.UserUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.net.URI;
+import java.net.URISyntaxException;
 
 @RestController
 @RequiredArgsConstructor
@@ -18,9 +18,16 @@ public class UserController {
 
     private final UserUseCase userUseCase;
 
-    @PostMapping()
-    public ResponseEntity<?> createUser(@RequestBody UserRequest userRequest){
-        UserResponse user = userUseCase.createUser(userRequest);
+    @PostMapping("")
+    public ResponseEntity<?> createUser(@RequestBody UserRequest userRequest) throws URISyntaxException {
+        Long userId = userUseCase.createUser(userRequest);
+        return ResponseEntity.created(new URI("/api/user/" + userId))
+                .build();
+    }
+
+    @GetMapping("/{userId}")
+    public ResponseEntity<?> getUser(@PathVariable Long userId){
+        UserResponse user = userUseCase.getUser(userId);
         return ResponseEntity.ok(user);
     }
 }

@@ -4,5 +4,7 @@ import com.co.kr.dtopattern.domain.dto.request.UserRequest;
 import com.co.kr.dtopattern.domain.dto.response.UserResponse;
 
 public interface UserUseCase {
-    UserResponse createUser(UserRequest userRequest);
+    Long createUser(UserRequest userRequest);
+
+    UserResponse getUser(Long userId);
 }
