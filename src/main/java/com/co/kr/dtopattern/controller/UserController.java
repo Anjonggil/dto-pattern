@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -29,5 +30,11 @@ public class UserController {
     public ResponseEntity<?> getUser(@PathVariable Long userId){
         UserResponse user = userUseCase.getUser(userId);
         return ResponseEntity.ok(user);
+    }
+
+    @GetMapping("")
+    public ResponseEntity<?> getUsers(){
+        List<UserResponse> userResponses = userUseCase.getUsers();
+        return ResponseEntity.ok(userResponses);
     }
 }
