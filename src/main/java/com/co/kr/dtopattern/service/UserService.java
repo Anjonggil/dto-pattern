@@ -3,6 +3,7 @@ package com.co.kr.dtopattern.service;
 import com.co.kr.dtopattern.domain.dto.request.UserRequest;
 import com.co.kr.dtopattern.domain.dto.response.UserResponse;
 import com.co.kr.dtopattern.domain.entity.User;
+import com.co.kr.dtopattern.mapper.UserRequestMapper;
 import com.co.kr.dtopattern.mapper.UserResponseMapper;
 import com.co.kr.dtopattern.repository.UserRepository;
 import com.co.kr.dtopattern.service.usecase.UserUseCase;

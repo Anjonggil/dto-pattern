@@ -1,4 +1,4 @@
-package com.co.kr.dtopattern.service;
+package com.co.kr.dtopattern.mapper;
 
 import com.co.kr.dtopattern.domain.dto.request.UserRequest;
 import com.co.kr.dtopattern.domain.entity.User;
