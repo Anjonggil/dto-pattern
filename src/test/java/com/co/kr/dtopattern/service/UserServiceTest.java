@@ -12,7 +12,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -74,5 +77,11 @@ class UserServiceTest {
 
     @Test
     void getUsers() {
+        given(userRepository.findAll()).willReturn(List.of(FIXTURE_USER_01));
+
+        List<UserResponse> targets = Stream.of(FIXTURE_USER_01).map(userResponseMapper).toList();
+        List<UserResponse> users = userService.getUsers();
+
+        assertThat(users.size()).isEqualTo(targets.size());
     }
 }
