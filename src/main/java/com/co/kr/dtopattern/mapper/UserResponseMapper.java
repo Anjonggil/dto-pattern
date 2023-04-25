@@ -15,6 +15,7 @@ public class UserResponseMapper implements Function<User, UserResponse> {
                 user.getUsername(),
                 user.getPassword(),
                 user.getNickname(),
-                user.getAge());
+                user.getAge(),
+                user.getAuth());
     }
 }
