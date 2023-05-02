@@ -1,14 +1,12 @@
 package com.co.kr.dtopattern.domain.entity;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
+@Setter
 @Table(name = "USER")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User {

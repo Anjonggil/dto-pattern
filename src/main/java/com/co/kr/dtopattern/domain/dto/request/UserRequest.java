@@ -1,11 +1,17 @@
 package com.co.kr.dtopattern.domain.dto.request;
 
-import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
-public record UserRequest(@NotNull String username,
-                          @NotNull String password,
-                          @NotNull String nickname,
-                          @NotNull Integer age) {
+public record UserRequest(String username,
+                          String password,
+                          String nickname,
+                          Integer age) {
+    public UserRequest{
+        Objects.requireNonNull(username);
+        Objects.requireNonNull(password);
+        Objects.requireNonNull(age);
+        Objects.requireNonNull(nickname);
+    }
 }
 
 /*
