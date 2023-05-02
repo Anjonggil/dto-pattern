@@ -73,6 +73,7 @@ class UserServiceTest {
         assertThat(userResponse.username()).isEqualTo(target.username());
         assertThat(userResponse.password()).isEqualTo(target.password());
         assertThat(userResponse.age()).isEqualTo(target.age());
+        assertThat(userResponse.auth()).isEqualTo(target.auth());
     }
 
     @Test
